@@ -23,6 +23,8 @@ let list = document.querySelector("#invitedList");
 list.addEventListener("click", function(e) {
   let target = e.target;
   let item = target.parentElement;
+  if(target.textContent === "edit" || target.textContent === "save"){
+    
   let span = item.querySelector('span');
   let input = span.querySelector('input');
 
@@ -40,6 +42,10 @@ list.addEventListener("click", function(e) {
     span.textContent = input.value;
     target.textContent = "edit";
     span.removeChild(newInput);
+  }
+  }else if(target.textContent === "remove"){
+
+    list.removeChild(item);
   }
 });
 
